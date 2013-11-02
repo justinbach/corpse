@@ -23,6 +23,7 @@
 		561DBE5918252FAE009B6998 /* CorpseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 561DBE5818252FAE009B6998 /* CorpseTests.m */; };
 		561DBE6318252FD3009B6998 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561DBE6218252FD3009B6998 /* SpriteKit.framework */; };
 		565A6AC5182531D600C4B5DE /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 565A6AC4182531D600C4B5DE /* MenuScene.m */; };
+		565A6AC8182536EA00C4B5DE /* emulogic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 565A6AC7182536EA00C4B5DE /* emulogic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		561DBE6218252FD3009B6998 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		565A6AC3182531D600C4B5DE /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		565A6AC4182531D600C4B5DE /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
+		565A6AC7182536EA00C4B5DE /* emulogic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = emulogic.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 		561DBE3418252FAD009B6998 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				565A6AC6182536D400C4B5DE /* Assets */,
 				561DBE3518252FAD009B6998 /* Corpse-Info.plist */,
 				561DBE3618252FAD009B6998 /* InfoPlist.strings */,
 				561DBE3918252FAD009B6998 /* main.m */,
@@ -167,6 +170,14 @@
 				565A6AC4182531D600C4B5DE /* MenuScene.m */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		565A6AC6182536D400C4B5DE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				565A6AC7182536EA00C4B5DE /* emulogic.ttf */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				561DBE4618252FAD009B6998 /* Images.xcassets in Resources */,
+				565A6AC8182536EA00C4B5DE /* emulogic.ttf in Resources */,
 				561DBE3818252FAD009B6998 /* InfoPlist.strings in Resources */,
 				561DBE4118252FAD009B6998 /* Main.storyboard in Resources */,
 			);
