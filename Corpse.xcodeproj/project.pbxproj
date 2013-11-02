@@ -21,6 +21,8 @@
 		561DBE4F18252FAE009B6998 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561DBE3118252FAD009B6998 /* UIKit.framework */; };
 		561DBE5718252FAE009B6998 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 561DBE5518252FAE009B6998 /* InfoPlist.strings */; };
 		561DBE5918252FAE009B6998 /* CorpseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 561DBE5818252FAE009B6998 /* CorpseTests.m */; };
+		561DBE6318252FD3009B6998 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561DBE6218252FD3009B6998 /* SpriteKit.framework */; };
+		565A6AC5182531D600C4B5DE /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 565A6AC4182531D600C4B5DE /* MenuScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		561DBE5418252FAE009B6998 /* CorpseTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CorpseTests-Info.plist"; sourceTree = "<group>"; };
 		561DBE5618252FAE009B6998 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		561DBE5818252FAE009B6998 /* CorpseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CorpseTests.m; sourceTree = "<group>"; };
+		561DBE6218252FD3009B6998 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		565A6AC3182531D600C4B5DE /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
+		565A6AC4182531D600C4B5DE /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				561DBE6318252FD3009B6998 /* SpriteKit.framework in Frameworks */,
 				561DBE3018252FAD009B6998 /* CoreGraphics.framework in Frameworks */,
 				561DBE3218252FAD009B6998 /* UIKit.framework in Frameworks */,
 				561DBE2E18252FAD009B6998 /* Foundation.framework in Frameworks */,
@@ -101,6 +107,7 @@
 		561DBE2C18252FAD009B6998 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				561DBE6218252FD3009B6998 /* SpriteKit.framework */,
 				561DBE2D18252FAD009B6998 /* Foundation.framework */,
 				561DBE2F18252FAD009B6998 /* CoreGraphics.framework */,
 				561DBE3118252FAD009B6998 /* UIKit.framework */,
@@ -112,6 +119,7 @@
 		561DBE3318252FAD009B6998 /* Corpse */ = {
 			isa = PBXGroup;
 			children = (
+				565A6AC2182531B500C4B5DE /* Scenes */,
 				561DBE3C18252FAD009B6998 /* CorpseAppDelegate.h */,
 				561DBE3D18252FAD009B6998 /* CorpseAppDelegate.m */,
 				561DBE3F18252FAD009B6998 /* Main.storyboard */,
@@ -150,6 +158,15 @@
 				561DBE5518252FAE009B6998 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		565A6AC2182531B500C4B5DE /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				565A6AC3182531D600C4B5DE /* MenuScene.h */,
+				565A6AC4182531D600C4B5DE /* MenuScene.m */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				561DBE3E18252FAD009B6998 /* CorpseAppDelegate.m in Sources */,
+				565A6AC5182531D600C4B5DE /* MenuScene.m in Sources */,
 				561DBE3A18252FAD009B6998 /* main.m in Sources */,
 				561DBE4418252FAD009B6998 /* CorpseViewController.m in Sources */,
 			);
@@ -463,6 +481,7 @@
 				561DBE5E18252FAE009B6998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		561DBE5F18252FAE009B6998 /* Build configuration list for PBXNativeTarget "CorpseTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +490,7 @@
 				561DBE6118252FAE009B6998 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
