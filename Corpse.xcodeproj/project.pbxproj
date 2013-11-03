@@ -24,6 +24,7 @@
 		561DBE6318252FD3009B6998 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 561DBE6218252FD3009B6998 /* SpriteKit.framework */; };
 		565A6AC5182531D600C4B5DE /* MenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 565A6AC4182531D600C4B5DE /* MenuScene.m */; };
 		565A6AC8182536EA00C4B5DE /* emulogic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 565A6AC7182536EA00C4B5DE /* emulogic.ttf */; };
+		5670CBD718268E1E0030DC80 /* CorpseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5670CBD618268E1E0030DC80 /* CorpseScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		565A6AC3182531D600C4B5DE /* MenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuScene.h; sourceTree = "<group>"; };
 		565A6AC4182531D600C4B5DE /* MenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuScene.m; sourceTree = "<group>"; };
 		565A6AC7182536EA00C4B5DE /* emulogic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = emulogic.ttf; sourceTree = "<group>"; };
+		5670CBD518268E1E0030DC80 /* CorpseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorpseScene.h; sourceTree = "<group>"; };
+		5670CBD618268E1E0030DC80 /* CorpseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorpseScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 			children = (
 				565A6AC3182531D600C4B5DE /* MenuScene.h */,
 				565A6AC4182531D600C4B5DE /* MenuScene.m */,
+				5670CBD518268E1E0030DC80 /* CorpseScene.h */,
+				5670CBD618268E1E0030DC80 /* CorpseScene.m */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -279,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5670CBD718268E1E0030DC80 /* CorpseScene.m in Sources */,
 				561DBE3E18252FAD009B6998 /* CorpseAppDelegate.m in Sources */,
 				565A6AC5182531D600C4B5DE /* MenuScene.m in Sources */,
 				561DBE3A18252FAD009B6998 /* main.m in Sources */,
