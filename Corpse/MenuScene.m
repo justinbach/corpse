@@ -15,7 +15,7 @@
 
 @implementation MenuScene
 
-@synthesize menuNode, labelNode;
+@synthesize labelNode;
 
 - (void)didMoveToView:(SKView *)view
 {
@@ -31,16 +31,16 @@
 {
     [self setBackgroundColor:[SKColor blackColor]];
     [self setScaleMode:SKSceneScaleModeAspectFit];
-    [self addChild: [self newMenuNode]];
+    [self addChild: [self newLabelNode]];
     if (! duration) {
         duration = 1.0;
     }
     
-    [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(moveMenuNode) userInfo:nil repeats:YES];
-    [self moveMenuNode];
+    [NSTimer scheduledTimerWithTimeInterval:duration target:self selector:@selector(moveLabelNode) userInfo:nil repeats:YES];
+    [self moveLabelNode];
 }
 
-- (void)moveMenuNode
+- (void)moveLabelNode
 {
 
     int w = labelNode.frame.size.width;
@@ -53,15 +53,14 @@
     [labelNode runAction:[SKAction group:@[moveX, moveY]]];
 }
 
-- (SKLabelNode *)newMenuNode
+- (SKLabelNode *)newLabelNode
 {
 
     labelNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
 
-    [labelNode setText:@"Tap To Begin..."];
+    [labelNode setText:@"Catch me if you can"];
     [labelNode setFontSize:20];
     [labelNode setPosition:CGPointMake(CGRectGetMidX([self frame]), CGRectGetMidY([self frame]))];
-    [labelNode setName:@"menuNode"];
     labelNode.name = @"labelNode";
     
     return labelNode;
