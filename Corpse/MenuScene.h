@@ -9,10 +9,12 @@
 #import <SpriteKit/SpriteKit.h>
 
 @interface MenuScene : SKScene {
-    SKLabelNode *labelNode;
+    SKSpriteNode *targetNode;
+    SKLabelNode *difficultyNode;
     float duration;
 }
 
-@property (nonatomic, retain) SKLabelNode *labelNode;
+@property (nonatomic, retain) SKSpriteNode *targetNode;
+@property (nonatomic, retain) SKLabelNode *difficultyNode;
 
 @end

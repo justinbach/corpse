@@ -15,7 +15,8 @@
 
 @implementation MenuScene
 
-@synthesize labelNode;
+@synthesize targetNode;
+@synthesize difficultyNode;
 
 - (void)didMoveToView:(SKView *)view
 {
@@ -29,9 +30,9 @@
 
 - (void)createSceneContents
 {
-    [self setBackgroundColor:[SKColor blackColor]];
+    [self setBackgroundColor:[self getRandomColor]];
     [self setScaleMode:SKSceneScaleModeAspectFit];
-    [self addChild: [self newLabelNode]];
+    [self addChild: [self newTargetNode]];
     if (! duration) {
         duration = 1.0;
     }
@@ -43,27 +44,37 @@
 - (void)moveLabelNode
 {
 
-    int w = labelNode.frame.size.width;
+    int w = targetNode.frame.size.width;
     int x = rand() % (int)([self size].width - w);
-    int h = labelNode.frame.size.height;
+    int h = targetNode.frame.size.height;
     int y = rand() % (int)([self size].height - h);
 
     SKAction *moveX = [SKAction moveToX:(x+(w/2)) duration:duration];
     SKAction *moveY = [SKAction moveToY:(y) duration:duration];
-    [labelNode runAction:[SKAction group:@[moveX, moveY]]];
+    [targetNode runAction:[SKAction group:@[moveX, moveY]]];
 }
 
-- (SKLabelNode *)newLabelNode
+- (SKLabelNode *)newDifficultyNode
 {
 
-    labelNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
+//    targetNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
+//
+//    [targetNode setText:@"Catch me if you can"];
+//    [targetNode setFontSize:20];
+//    [targetNode setPosition:CGPointMake(CGRectGetMidX([self frame]), CGRectGetMidY([self frame]))];
+//    targetNode.name = @"targetNode";
+//    
+//    return targetNode;
+    return nil;
+}
 
-    [labelNode setText:@"Catch me if you can"];
-    [labelNode setFontSize:20];
-    [labelNode setPosition:CGPointMake(CGRectGetMidX([self frame]), CGRectGetMidY([self frame]))];
-    labelNode.name = @"labelNode";
+- (SKSpriteNode *)newTargetNode
+{
+    targetNode = [[SKSpriteNode alloc] initWithColor:[self getRandomColor] size:CGSizeMake(100, 100)];
+    [targetNode setName:@"targetNode"];
     
-    return labelNode;
+    return targetNode;
+    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -74,8 +85,8 @@
     
     //if fire button touched, bring the rain
 
-    if ([node.name isEqualToString:@"labelNode"]) {
-   
+    if ([node.name isEqualToString:@"targetNode"]) {
+        NSLog(@"Yup");
         [node setName:nil];
         SKAction *zoom = [SKAction scaleTo:20 duration:1];
         SKAction *moveDown = [SKAction moveByX:0 y:-100 duration:1];
@@ -90,8 +101,20 @@
         }];
                                 
     }
-    
-    
+}
+
+- (UIColor *)getRandomColor
+{
+    float r = [self getRandomFloat];
+    float g = [self getRandomFloat];
+    float b = [self getRandomFloat];
+    return [UIColor colorWithRed:r green:g blue:b alpha:1];
+}
+
+#define ARC4RANDOM_MAX      0x100000000
+- (float)getRandomFloat
+{
+    return ((double)arc4random() / ARC4RANDOM_MAX);;
 }
 
 @end
