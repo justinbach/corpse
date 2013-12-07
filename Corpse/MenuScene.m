@@ -16,7 +16,7 @@
 @implementation MenuScene
 
 @synthesize targetNode;
-@synthesize difficultyNode;
+@synthesize infoNode;
 
 - (void)didMoveToView:(SKView *)view
 {
@@ -33,6 +33,7 @@
     [self setBackgroundColor:[self getRandomColor]];
     [self setScaleMode:SKSceneScaleModeAspectFit];
     [self addChild: [self newTargetNode]];
+    [self addChild: [self newInfoNode]];
     if (! duration) {
         duration = 1.0;
     }
@@ -50,22 +51,33 @@
     int y = rand() % (int)([self size].height - h);
 
     SKAction *moveX = [SKAction moveToX:(x+(w/2)) duration:duration];
-    SKAction *moveY = [SKAction moveToY:(y) duration:duration];
+    SKAction *moveY = [SKAction moveToY:(y+(h/2)) duration:duration]; // why the hell is this exceeding the scene bounds?
     [targetNode runAction:[SKAction group:@[moveX, moveY]]];
 }
 
-- (SKLabelNode *)newDifficultyNode
+- (SKNode *)newInfoNode
 {
-
-//    targetNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
-//
-//    [targetNode setText:@"Catch me if you can"];
-//    [targetNode setFontSize:20];
-//    [targetNode setPosition:CGPointMake(CGRectGetMidX([self frame]), CGRectGetMidY([self frame]))];
-//    targetNode.name = @"targetNode";
-//    
-//    return targetNode;
-    return nil;
+    infoNode = [[SKNode alloc] init];
+    SKLabelNode *instructionsNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
+    [instructionsNode setText:@"can you tap the box?"];
+    [instructionsNode setFontSize:20];
+    
+    
+    SKLabelNode *difficultyNode = [SKLabelNode labelNodeWithFontNamed:@"Emulogic"];
+    [difficultyNode setText:[@"difficulty: " stringByAppendingString:[self getDifficultyText]]];
+    [difficultyNode setFontSize:14];
+    [difficultyNode setPosition:CGPointMake(0, -1 * ([instructionsNode frame].size.height) - 10)];
+    
+    NSArray *labelNodes = @[instructionsNode, difficultyNode];
+    for (SKLabelNode *labelNode in labelNodes) {
+        [labelNode setFontColor:[self isBackgroundLight] ? [UIColor blackColor] : [UIColor whiteColor]];
+    }
+    
+    [infoNode addChild:instructionsNode];
+    [infoNode addChild:difficultyNode];
+    [infoNode setPosition:CGPointMake(CGRectGetMidX([self frame]), CGRectGetMaxY([self frame]) - 210)];
+    
+    return infoNode;
 }
 
 - (SKSpriteNode *)newTargetNode
@@ -101,6 +113,16 @@
         }];
                                 
     }
+}
+
+- (BOOL) isBackgroundLight
+{
+    return YES;
+}
+
+- (NSString *)getDifficultyText
+{
+    return @"easy";
 }
 
 - (UIColor *)getRandomColor

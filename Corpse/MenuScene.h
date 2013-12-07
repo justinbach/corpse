@@ -10,11 +10,11 @@
 
 @interface MenuScene : SKScene {
     SKSpriteNode *targetNode;
-    SKLabelNode *difficultyNode;
+    SKNode *infoNode;
     float duration;
 }
 
 @property (nonatomic, retain) SKSpriteNode *targetNode;
-@property (nonatomic, retain) SKLabelNode *difficultyNode;
+@property (nonatomic, retain) SKNode *infoNode;
 
 @end
