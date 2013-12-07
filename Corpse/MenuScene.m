@@ -115,9 +115,13 @@
     }
 }
 
-- (BOOL) isBackgroundLight
+- (BOOL)isBackgroundLight
 {
-    return YES;
+    const CGFloat *components = CGColorGetComponents([[self backgroundColor] CGColor]);
+    float r = components[0];
+    float g = components[1];
+    float b = components[2];
+    return (r + g + b > 1.5);
 }
 
 - (NSString *)getDifficultyText
