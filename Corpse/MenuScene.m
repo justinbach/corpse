@@ -82,7 +82,7 @@
 
 - (SKSpriteNode *)newTargetNode
 {
-    targetNode = [[SKSpriteNode alloc] initWithColor:[self getRandomColor] size:CGSizeMake(100, 100)];
+    targetNode = [[SKSpriteNode alloc] initWithColor:[self getRandomColor] size:CGSizeMake(50, 50)];
     [targetNode setName:@"targetNode"];
     
     return targetNode;
@@ -98,7 +98,6 @@
     //if fire button touched, bring the rain
 
     if ([node.name isEqualToString:@"targetNode"]) {
-        NSLog(@"Yup");
         [node setName:nil];
         SKAction *zoom = [SKAction scaleTo:20 duration:1];
         SKAction *moveDown = [SKAction moveByX:0 y:-100 duration:1];
@@ -124,9 +123,43 @@
     return (r + g + b > 1.5);
 }
 
+// returns the percentage of difference between bg color and target color
+- (float)getDifficultyScore
+{
+    // using naive Euclidean comparison here, sorry guys
+    const CGFloat *bgComponents = CGColorGetComponents([[self backgroundColor] CGColor]);
+    float bgR = bgComponents[0];
+    float bgG = bgComponents[1];
+    float bgB = bgComponents[2];
+    
+    const CGFloat *tComponents = CGColorGetComponents([[targetNode color] CGColor]);
+    float tR = tComponents[0];
+    float tG = tComponents[1];
+    float tB = tComponents[2];
+    
+    float distance = sqrtf(powf((bgR - tR), 2) +
+                           powf((bgG - tG), 2) +
+                           powf((bgB - tB), 2));
+    return distance / sqrtf(3.0);
+}
+
 - (NSString *)getDifficultyText
 {
-    return @"easy";
+    float difference = [self getDifficultyScore];
+    NSString *difficultyMessage;
+    if (difference < .1) {
+        difficultyMessage = @"insane";
+    } else if (difference < .3) {
+        difficultyMessage = @"hard";
+    } else if (difference < .5) {
+        difficultyMessage = @"moderate";
+    } else if (difference < .7) {
+        difficultyMessage = @"easy";
+    } else {
+        difficultyMessage = @"too easy";
+    }
+    
+    return difficultyMessage;
 }
 
 - (UIColor *)getRandomColor
